@@ -1,3 +1,11 @@
+import persons.Actor;
+import persons.Director;
+import persons.Gender;
+import persons.Person;
+import shows.Ballet;
+import shows.Opera;
+import shows.Show;
+
 import java.util.ArrayList;
 
 public class Theatre {
@@ -6,6 +14,8 @@ public class Theatre {
         Actor firstActor = new Actor("Джонни", "Депп", Gender.MALE, 178);
         Actor secondActor = new Actor("Олег", "Меньшиков", Gender.MALE, 174);
         Actor thirdActor = new Actor("Джессика", "Альба", Gender.FEMALE, 169);
+        Actor fourthActor = new Actor("Джонни", "Депп", Gender.MALE, 178);
+        Actor fifthActor = new Actor("Майкл", "Депп", Gender.MALE, 175);
 
         Director firstDirector = new Director("Никита", "Михалков", Gender.MALE, 5);
         Director secondDirector = new Director("Хлоя", "Чжао", Gender.FEMALE, 3);
@@ -107,6 +117,8 @@ public class Theatre {
 
         drama.addActor(firstActor);
         drama.addActor(secondActor);
+        drama.addActor(fourthActor);
+        drama.addActor(fifthActor);
 
         opera.addActor(secondActor);
         opera.addActor(thirdActor);
@@ -127,11 +139,11 @@ public class Theatre {
         ballet.printActors();
         printSeparatingLine();
 
-        drama.replaceActor(firstActor, thirdActor);
+        drama.replaceActor(thirdActor, "Депп");
         drama.printActors();
         printSeparatingLine();
 
-        opera.replaceActor(firstActor, firstActor);
+        opera.replaceActor(firstActor, "Иванов");
         printSeparatingLine();
 
         opera.printLibretto();

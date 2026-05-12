@@ -1,3 +1,8 @@
+package shows;
+
+import persons.Actor;
+import persons.Director;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -43,15 +48,27 @@ public class Show {
         listOfActors.add(actor);
     }
 
-    public void replaceActor(Actor oldActor, Actor newActor) {
+    public void replaceActor(Actor actor, String surname) {
+        int actorIndex = -1;
+
         for (int i = 0; i < listOfActors.size(); i++) {
             Actor currentActor = listOfActors.get(i);
-            if (currentActor.equals(oldActor)) {
-                listOfActors.set(i, newActor);
-                return;
+            if (currentActor.getSurname().equals(surname)) {
+                if (actorIndex != -1) {
+                    System.out.println("В спектакле \"" + title + "\" найдено несколько актеров с фамилией "
+                            + surname + ". Потребуется уточнение, какого именно актера необходимо заменить.");
+                    return;
+                }
+                actorIndex = i;
             }
         }
 
-        System.out.println("Актер " + oldActor + " не найден в спектакле \"" + title + "\".");
+        if (actorIndex == -1) {
+            System.out.println("Актер с фамилией " + surname + " не найден в спектакле \"" + title + "\".");
+            return;
+        }
+
+        listOfActors.set(actorIndex, actor);
+        System.out.println("Актер с фамилией " + surname + " был успешно заменен.");
     }
 }
