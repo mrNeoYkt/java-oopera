@@ -144,6 +144,7 @@ public class Theatre {
         printSeparatingLine();
 
         opera.replaceActor(firstActor, "Иванов");
+        opera.printActors();
         printSeparatingLine();
 
         opera.printLibretto();
